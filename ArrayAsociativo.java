@@ -47,6 +47,21 @@ public class ArrayAsociativo {
 		return n;
 	}
 	
+	public String get(String clave){
+		Nodo aux = primero;
+		String res;
+		while(clave != aux.clave && aux != null){
+			aux = aux.sig;
+		}
+		if(aux == null){
+			throw new NoSuchElementException("Falla");
+		}
+		else{
+			res = aux.valor;
+			return res;
+		}
+	}
+	
 	
 	
 }
