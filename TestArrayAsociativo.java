@@ -115,4 +115,23 @@ public class TestArrayAsociativo {
 		a = new ArrayAsociativo(claves,valores);
 		assertTrue(a.containsKey(claves[2]) == true);
 	}
+	
+	@Test
+	public void borrarArrayVacio(){
+		assertTrue(a.remove(claves[3]) == false);
+	}
+	
+	@Test
+	public void borrarContieneClave(){
+		a = new ArrayAsociativo(claves,valores);
+		assertTrue(a.remove(claves[1]) == true);
+	}
+	
+	@Test
+	public void borrarNoContieneClave(){
+		a = new ArrayAsociativo(claves,valores);
+		assertTrue(a.remove("telefono") == false);
+	}
+	
+	
 }

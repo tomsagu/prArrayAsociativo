@@ -99,6 +99,25 @@ public class ArrayAsociativo {
 		return aux != null;
 	}
 	
+	public boolean remove(String clave){
+		Nodo aux = primero;
+		Nodo anterior = null;
+		boolean res;
+		while(aux != null && clave != aux.clave){
+			anterior = aux;
+			aux = aux.sig;
+		}
+		if(aux == null){
+			res = false;
+		}
+		else{
+			anterior.sig=aux.sig;
+			aux = null;
+			res = true;
+		}
+		return res;
+	}
+	
 	
 	
 }
