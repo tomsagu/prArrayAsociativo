@@ -33,7 +33,7 @@ public class TestArrayAsociativo {
 	public void sizeArrayNoVacio(){
 		a = new ArrayAsociativo(claves,valores);
 		assertTrue(4 == a.size());
-		a = null;
+	
 	}
 
 }
