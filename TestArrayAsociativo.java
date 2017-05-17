@@ -98,4 +98,21 @@ public class TestArrayAsociativo {
 		a = new ArrayAsociativo(claves,valores);
 		assertTrue(a.getOrElse("telefono","desconocido") == "desconocido");
 	}
+	
+	@Test
+	public void existeArrayVacio(){
+		assertTrue(a.containsKey(claves[0]) == false);
+	}
+	
+	@Test
+	public void existeArrayNoContiene(){
+		a = new ArrayAsociativo(claves,valores);
+		assertTrue(a.containsKey("telefono") == false);
+	}
+	
+	@Test
+	public void existeArrayContiene(){
+		a = new ArrayAsociativo(claves,valores);
+		assertTrue(a.containsKey(claves[2]) == true);
+	}
 }

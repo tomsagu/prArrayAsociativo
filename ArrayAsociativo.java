@@ -91,6 +91,14 @@ public class ArrayAsociativo {
 		return res;
 	}
 	
+	public boolean containsKey(String clave){
+		Nodo aux = primero;
+		while(aux != null && clave != aux.clave){
+			aux = aux.sig;
+		}
+		return aux != null;
+	}
+	
 	
 	
 }
