@@ -58,8 +58,8 @@ public class ArrayAsociativo {
 		}
 		else{
 			res = aux.valor;
-			return res;
 		}
+		return res;
 	}
 	
 	public void put(String clave, String valor){
@@ -74,6 +74,21 @@ public class ArrayAsociativo {
 		}else{
 			aux.valor = valor;
 		}
+	}
+	
+	public String getOrElse(String clave, String valorPorDefecto){
+		Nodo aux = primero;
+		String res;
+		while(aux != null && clave != aux.clave){
+			aux = aux.sig;
+		}
+		if(aux == null){
+			res = valorPorDefecto;
+		}
+		else{
+			res = aux.valor;	
+		}
+		return res;
 	}
 	
 	

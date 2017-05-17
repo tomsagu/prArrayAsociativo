@@ -81,5 +81,21 @@ public class TestArrayAsociativo {
 		a.put(claves[1], "martinez");
 		assertTrue(a.get(claves[1]) == "martinez");
 	}
-
+	
+	@Test
+	public void getOrElseArrayVacio(){
+		assertTrue(a.getOrElse(claves[0],"desconocido") == "desconocido");
+	}
+	
+	@Test
+	public void getOrElseClaveExiste(){
+		a = new ArrayAsociativo(claves,valores);
+		assertTrue(a.getOrElse(claves[0],"desconocido") == valores[0]);
+	}
+	
+	@Test
+	public void getOrElseClaveNoExiste(){
+		a = new ArrayAsociativo(claves,valores);
+		assertTrue(a.getOrElse("telefono","desconocido") == "desconocido");
+	}
 }
