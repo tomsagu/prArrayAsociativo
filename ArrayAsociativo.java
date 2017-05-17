@@ -50,7 +50,7 @@ public class ArrayAsociativo {
 	public String get(String clave){
 		Nodo aux = primero;
 		String res;
-		while(clave != aux.clave && aux != null){
+		while(aux != null && clave != aux.clave){
 			aux = aux.sig;
 		}
 		if(aux == null){
@@ -59,6 +59,20 @@ public class ArrayAsociativo {
 		else{
 			res = aux.valor;
 			return res;
+		}
+	}
+	
+	public void put(String clave, String valor){
+		Nodo aux = primero;
+		while(aux != null && clave != aux.clave){
+			aux = aux.sig;
+			
+		}
+		if(aux == null){
+			Nodo nuevo = new Nodo(clave, valor,primero);
+			primero = nuevo;
+		}else{
+			aux.valor = valor;
 		}
 	}
 	

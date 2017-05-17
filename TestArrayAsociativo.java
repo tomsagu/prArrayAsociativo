@@ -11,7 +11,6 @@ public class TestArrayAsociativo {
 	private ArrayAsociativo a;
 	private static String [] claves = {"nombre","apellido","dni","pais"};
 	private static String [] valores = {"luis","martin","12345567P","España"};
-	private static String clave = "nombre";
 	
 	@Before
 	public void inicializar() {
@@ -46,13 +45,13 @@ public class TestArrayAsociativo {
 	public void valorArrayVacio(){
 		posibleExcepcion.expect(NoSuchElementException.class);
 		posibleExcepcion.expectMessage("Falla");
-		a.get(clave);
+		a.get(claves[0]);
 	}
 	
 	@Test
 	public void valorExisteClave(){
 		a = new ArrayAsociativo(claves,valores);
-		assertTrue(a.get(clave) == "luis");
+		assertTrue(a.get(claves[0]) == "luis");
 	}
 	
 	@Test
@@ -61,6 +60,26 @@ public class TestArrayAsociativo {
 		posibleExcepcion.expect(NoSuchElementException.class);
 		posibleExcepcion.expectMessage("Falla");
 		a.get("telefono");
+	}
+	
+	@Test
+	public void insertarArrayVacio(){
+		a.put(claves[0], valores[0]);
+		assertTrue(a.get(claves[0]) == valores[0]);
+	}
+	
+	@Test
+	public void insertarArrayNoVacio(){
+		a = new ArrayAsociativo(claves,valores);
+		a.put("telefono", "658654651");
+		assertTrue(a.get("telefono") == "658654651");
+	}
+	
+	@Test
+	public void insertarClaveAlmacenada(){
+		a = new ArrayAsociativo(claves,valores);
+		a.put(claves[1], "martinez");
+		assertTrue(a.get(claves[1]) == "martinez");
 	}
 
 }
