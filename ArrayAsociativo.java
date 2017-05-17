@@ -100,24 +100,24 @@ public class ArrayAsociativo {
 	}
 	
 	public boolean remove(String clave){
+		boolean res = false;
 		Nodo aux = primero;
 		Nodo anterior = null;
-		boolean res;
-		while(aux != null && clave != aux.clave){
-			anterior = aux;
-			aux = aux.sig;
-		}
-		if(aux == null){
-			res = false;
-		}
-		else{
-			anterior.sig=aux.sig;
+		if(containsKey(clave)){
+			while(aux != null && clave != aux.clave){
+				anterior = aux;
+				aux = aux.sig;
+			}
+			if(aux == primero){
+				primero = aux.sig;
+			}else{
+				anterior.sig=aux.sig;
+			}
 			aux = null;
 			res = true;
 		}
 		return res;
 	}
-	
 	
 	
 }

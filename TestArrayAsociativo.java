@@ -78,19 +78,19 @@ public class TestArrayAsociativo {
 	@Test
 	public void insertarClaveAlmacenada(){
 		a = new ArrayAsociativo(claves,valores);
-		a.put(claves[1], "martinez");
-		assertTrue(a.get(claves[1]) == "martinez");
+		a.put(claves[3], "martinez");
+		assertTrue(a.get(claves[3]) == "martinez");
 	}
 	
 	@Test
 	public void getOrElseArrayVacio(){
-		assertTrue(a.getOrElse(claves[0],"desconocido") == "desconocido");
+		assertTrue(a.getOrElse(claves[3],"desconocido") == "desconocido");
 	}
 	
 	@Test
 	public void getOrElseClaveExiste(){
 		a = new ArrayAsociativo(claves,valores);
-		assertTrue(a.getOrElse(claves[0],"desconocido") == valores[0]);
+		assertTrue(a.getOrElse(claves[3],"desconocido") == valores[3]);
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ public class TestArrayAsociativo {
 	
 	@Test
 	public void existeArrayVacio(){
-		assertTrue(a.containsKey(claves[0]) == false);
+		assertTrue(a.containsKey(claves[3]) == false);
 	}
 	
 	@Test
@@ -113,7 +113,7 @@ public class TestArrayAsociativo {
 	@Test
 	public void existeArrayContiene(){
 		a = new ArrayAsociativo(claves,valores);
-		assertTrue(a.containsKey(claves[2]) == true);
+		assertTrue(a.containsKey(claves[3]) == true);
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ public class TestArrayAsociativo {
 	@Test
 	public void borrarContieneClave(){
 		a = new ArrayAsociativo(claves,valores);
-		assertTrue(a.remove(claves[1]) == true);
+		assertTrue(a.remove(claves[3]) == true);
 	}
 	
 	@Test
